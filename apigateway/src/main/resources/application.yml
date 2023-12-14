@@ -6,13 +6,21 @@ spring:
         locator:
           enabled: true
           lowerCaseServiceId: true
-          # url-expression: "'http://'+serviceId"
-    # enable if configuration need to be loaded from ConfigMap or Secrets
-    # kubernetes:
-    #   reload:
-    #     enabled: true
-    #     mode: polling
-    #     period: 5000
+      routes:
+        - id: booking-service
+          uri: lb://booking-service
+          predicates:
+            - Path=/booking-service/**
+          filters:
+            - RemoveRequestHeader=Cookie
+            - RewritePath=/booking-service/(?<segment>.*), /$\{segment}
+        - id: tracking-service
+          uri: lb://tracking-service
+          predicates:
+            - Path=/tracking-service
+          filters:
+            - RemoveRequestHeader=Cookie
+            - RewritePath=/tracking-service/(?<segment>.*), /$\{segment}
 server:
   port: 8000
 logging:
