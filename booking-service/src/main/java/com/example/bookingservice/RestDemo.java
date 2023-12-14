@@ -14,6 +14,11 @@ public class RestDemo {
         this.trackingServiceClient = trackingServiceClient;
     }
 
+    @GetMapping("/")
+    public String getHi() {
+        return "Hi, Booking Service!";
+    }
+
     @GetMapping("/hello")
     public String getBookingMessage() {
         return "Welcome from Booking Application!" + trackingServiceClient.getHello();
