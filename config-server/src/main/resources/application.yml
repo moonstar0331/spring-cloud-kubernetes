@@ -7,5 +7,5 @@ spring:
     config:
       server:
         git:
-          uri:
+          uri: https://github.com/moonstar0331/spring-cloud-kubernetes
           default-label: main
