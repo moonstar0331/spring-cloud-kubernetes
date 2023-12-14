@@ -4,7 +4,7 @@ spring:
     kubernetes:
       config:
         enabled: true
-        name: booking-service
+        name: gateway
         namespace: default
       loadbalancer:
         mode: service

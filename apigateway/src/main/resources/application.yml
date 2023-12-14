@@ -1,5 +1,23 @@
+server:
+  port: 8000
+logging:
+  level:
+    org.springframework.cloud.gateway: TRACE
+    org.springframework.cloud.loadbalancer: TRACE
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+  endpoint:
+    health:
+      enabled: true
+    info:
+      enabled: true
+
 spring:
-  application.name: gateway
+  application:
+    name: gateway
   cloud:
     gateway:
       discovery:
@@ -21,19 +39,3 @@ spring:
           filters:
             - RemoveRequestHeader=Cookie
             - RewritePath=/tracking-service/(?<segment>.*), /$\{segment}
-server:
-  port: 8000
-logging:
-  level:
-    org.springframework.cloud.gateway: TRACE
-    org.springframework.cloud.loadbalancer: TRACE
-management:
-  endpoints:
-    web:
-      exposure:
-        include: '*'
-  endpoint:
-    health:
-      enabled: true
-    info:
-      enabled: true
