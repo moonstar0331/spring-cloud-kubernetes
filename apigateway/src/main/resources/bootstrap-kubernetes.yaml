@@ -1,10 +1,14 @@
 spring:
-  profiles: kubernetes
+  config:
+    activate:
+      on-profile: kubernetes
   cloud:
+    config:
+      enabled: false
     kubernetes:
       config:
         enabled: true
-        name: gateway
+        name: gateway-config
         namespace: default
       loadbalancer:
         mode: service

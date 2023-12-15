@@ -1,8 +1,11 @@
+server:
+  port: 0
+
 spring:
   cloud:
     config:
       uri: http://127.0.0.1:8888
-      name: tracking-service
+      name: tracking-config
     kubernetes:
       enabled: false
       config:
