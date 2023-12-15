@@ -1,0 +1,13 @@
+spring:
+  config:
+    activate:
+      on-profile: kubernetes
+  application:
+    name: tracking-service
+
+eureka:
+  client:
+    register-with-eureka: false
+    fetch-registry: false
+greeting:
+  message: "Tracking-Service in Kubernetes!"

@@ -1,0 +1,14 @@
+spring:
+  config:
+    activate:
+      on-profile: kubernetes
+  application:
+    name: booking-service
+
+eureka:
+  client:
+    register-with-eureka: false
+    fetch-registry: false
+
+greeting:
+  message: "Booking-Service in Kubernetes!"

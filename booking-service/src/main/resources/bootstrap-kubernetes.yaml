@@ -6,15 +6,10 @@ spring:
     config:
       enabled: false
     kubernetes:
+      enabled: true
       config:
         enabled: true
         name: booking-config
         namespace: default
       loadbalancer:
         mode: service
-      enabled: true
-
-eureka:
-  client:
-    register-with-eureka: false
-    fetch-registry: false

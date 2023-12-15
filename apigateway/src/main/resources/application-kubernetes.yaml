@@ -4,6 +4,7 @@ logging:
   level:
     org.springframework.cloud.gateway: TRACE
     org.springframework.cloud.loadbalancer: TRACE
+
 management:
   endpoints:
     web:
@@ -16,6 +17,9 @@ management:
       enabled: true
 
 spring:
+  config:
+    activate:
+      on-profile: kubernetes
   application:
     name: gateway
   cloud:
@@ -41,10 +45,6 @@ spring:
             - RewritePath=/tracking-service/(?<segment>.*), /$\{segment}
 
 eureka:
-  instance:
-    instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}
   client:
-    fetch-registry: true
-    register-with-eureka: true
-    service-url:
-      defaultZone: http://127.0.0.1:8761/eureka
+    register-with-eureka: false
+    fetch-registry: false
