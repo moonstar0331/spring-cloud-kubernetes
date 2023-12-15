@@ -23,6 +23,18 @@ spring:
   application:
     name: gateway
   cloud:
+#    discovery:
+#      enabled: false
+    config:
+      enabled: false
+    kubernetes:
+      enabled: true
+      config:
+        enabled: true
+        name: gateway-config
+        namespace: default
+      loadbalancer:
+        mode: service
     gateway:
       discovery:
         locator:
@@ -48,3 +60,4 @@ eureka:
   client:
     register-with-eureka: false
     fetch-registry: false
+    enabled: false

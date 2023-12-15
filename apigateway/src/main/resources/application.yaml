@@ -18,7 +18,14 @@ management:
 spring:
   application:
     name: gateway
+  config:
+    activate:
+      on-profile: default
   cloud:
+    kubernetes:
+      enabled: false
+      config:
+        enabled: false
     gateway:
       discovery:
         locator:

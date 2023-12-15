@@ -7,6 +7,14 @@ spring:
       on-profile: default
   application:
     name: tracking-service
+  cloud:
+    config:
+      uri: http://127.0.0.1:8888
+      name: tracking-service
+    kubernetes:
+      enabled: false
+      config:
+        enabled: false
 
 eureka:
   instance:
