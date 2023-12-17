@@ -1,20 +1,9 @@
 spring:
+  application:
+    name: booking-service
   config:
     activate:
       on-profile: kubernetes
-  application:
-    name: booking-service
-  cloud:
-    config:
-      enabled: false
-    kubernetes:
-      enabled: true
-      config:
-        enabled: true
-        name: booking-config
-        namespace: default
-      loadbalancer:
-        mode: service
 
 eureka:
   client:

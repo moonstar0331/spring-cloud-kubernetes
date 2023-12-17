@@ -7,14 +7,6 @@ spring:
   config:
     activate:
       on-profile: default
-  cloud:
-    config:
-      uri: http://127.0.0.1:8888
-      name: booking-service
-    kubernetes:
-      enabled: false
-      config:
-        enabled: false
 
 eureka:
   instance:
